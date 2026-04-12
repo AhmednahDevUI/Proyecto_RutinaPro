@@ -1,0 +1,265 @@
+/* Base limpia */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial,
+		sans-serif;
+}
+
+/* Tema gimnasio: negro + amarillo/gold */
+:root {
+	--fondo: #0b0b0e;
+	--tarjeta: #14141b;
+	--texto: #ffffff;
+	--texto-suave: #b7b7c3;
+	--acento: #FFDD00;
+	--acento-hover: #E6C900;
+	--borde: rgba(255, 221, 0, 0.18);
+}
+
+/* Estructura general */
+.cuerpo-inicio {
+	background: radial-gradient(circle at 20% 20%, rgba(255, 221, 0, 0.10),
+		transparent 45%),
+		radial-gradient(circle at 80% 30%, rgba(255, 221, 0, 0.08),
+		transparent 50%),
+		radial-gradient(circle at 50% 90%, rgba(255, 255, 255, 0.04),
+		transparent 55%), #0b0b0e;
+		
+	color: var(--texto);
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	color: var(--texto);
+}
+
+
+/* Tarjeta central */
+.contenedor-inicio {
+	width: min(920px, 92vw);
+	margin: auto;
+	background: var(--tarjeta);
+	border: 1px solid var(--borde);
+	border-radius: 16px;
+	padding: clamp(22px, 4vw, 44px);
+	/**Sombreado***/
+	box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55), 0 0 0 1px
+		rgba(255, 221, 0, 0.18), 0 10px 30px rgba(255, 221, 0, 0.14);
+		
+	/***Esto es para la animacion**/
+	animation: neonPulse 6.5s ease-in-out infinite;
+		
+}
+
+/* Jerarquía visual */
+.titulo-inicio {
+	font-size: clamp(34px, 5vw, 56px);
+	line-height: 1.03;
+	letter-spacing: -0.7px;
+	margin-bottom: 12px;
+}
+
+.eslogan-inicio {
+	font-size: clamp(15px, 2vw, 18px);
+	color: #e1e1ec;
+	margin-bottom: 14px;
+}
+
+.descripcion-inicio {
+	color: var(--texto-suave);
+	font-size: clamp(14px, 1.7vw, 15.5px);
+	line-height: 1.6;
+	max-width: 74ch;
+	margin-bottom: 20px;
+}
+
+/* Bloque de funciones */
+.seccion-funciones {
+	background: rgba(255, 255, 255, 0.03);
+	border: 1px solid rgba(255, 221, 0, 0.14);
+	border-radius: 14px;
+	padding: 16px;
+	margin-bottom: 20px;
+}
+
+.titulo-funciones {
+	font-size: 13px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	color: #ffe75a;
+	margin-bottom: 10px;
+}
+
+.lista-funciones {
+	list-style: none;
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 10px;
+	color: #dedee8;
+	font-size: 15px;
+}
+
+.lista-funciones li {
+	padding-left: 18px;
+	position: relative;
+}
+
+.lista-funciones li::before {
+	content: "✓";
+	position: absolute;
+	left: 0;
+	color: var(--acento);
+	font-weight: 800;
+}
+
+/* Botonera */
+.acciones-inicio {
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	margin-top: 10px;
+}
+
+.boton-principal, .boton-secundario {
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+	text-decoration: none;
+	padding: 13px 18px;
+	border-radius: 12px;
+	font-weight: 900;
+	transition: transform 0.15s ease, background 0.2s ease;
+}
+
+/* Acción principal (amarillo) */
+.boton-principal {
+	background: var(--acento);
+	color: #0b0b0e;
+}
+
+.boton-principal:hover {
+	background: var(--acento-hover);
+	transform: translateY(-1px);
+}
+
+/* Acción secundaria (borde amarillo) */
+.boton-secundario {
+	background: transparent;
+	color: #ffe75a;
+	border: 1px solid rgba(255, 221, 0, 0.65);
+}
+
+.boton-secundario:hover {
+	background: rgba(255, 221, 0, 0.10);
+	transform: translateY(-1px);
+}
+
+/* Pista del JS */
+.pista-inicio {
+	margin-top: 14px;
+	font-size: 14px;
+	color: var(--texto-suave);
+	min-height: 18px;
+}
+
+/* Footer peie */
+.pie-inicio {
+	padding: 18px 24px;
+	color: var(--texto-suave);
+}
+
+.pie-contenido {
+	max-width: 920px;
+	margin: 0 auto;
+	display: flex;
+	gap: 8px;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	border-top: 1px solid rgba(255, 255, 255, 0.06);
+	padding-top: 14px;
+}
+
+.pie-marca {
+	color: #e9e9f3;
+	font-weight: 900;
+}
+
+.pie-autor {
+	color: var(--texto-suave);
+}
+
+/* Botón ayuda flotante */
+.ayuda-flotante{
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 5;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 10px 12px;
+  border-radius: 999px;
+
+  background: var(--tarjeta);
+  border: 1px solid rgba(255, 221, 0, 0.30);
+  color: #ffe75a;
+  text-decoration: none;
+  font-weight: 900;
+  font-size: 13px;
+
+  backdrop-filter: blur(10px);
+  transition: transform .15s ease, background .2s ease, border-color .2s ease;
+}
+
+.ayuda-flotante:hover{
+  transform: translateY(-1px);
+  background: rgba(20, 20, 27, 0.85);
+  border-color: rgba(255, 221, 0, 0.55);
+}
+
+/***Animacion para la tarjeta contenedir-inicio**/
+@keyframes neonPulse {
+  0% {
+    box-shadow:
+      0 18px 40px rgba(0,0,0,0.55),
+      0 0 0 1px rgba(255,221,0,0.18),
+      0 10px 30px rgba(255,221,0,0.12);
+  }
+
+  50% {
+    box-shadow:
+      0 20px 45px rgba(0,0,0,0.6),
+      0 0 0 1px rgba(255,221,0,0.25),
+      0 25px 80px rgba(255,221,0,0.45);
+
+  }
+
+  100% {
+    box-shadow:
+      0 18px 40px rgba(0,0,0,0.55),
+      0 0 0 1px rgba(255,221,0,0.18),
+      0 10px 30px rgba(255,221,0,0.12);
+  }
+}
+
+
+/* Tablet+ */
+@media ( min-width : 700px) {
+	.acciones-inicio {
+		flex-direction: row;
+		align-items: center;
+	}
+	.boton-principal, .boton-secundario {
+		width: auto;
+	}
+	.lista-funciones {
+		grid-template-columns: 1fr 1fr;
+	}
+}

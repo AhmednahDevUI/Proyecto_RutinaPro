@@ -1,0 +1,318 @@
+/* reset */
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;}
+
+/* paleta */
+:root{
+  --fondo:#0b0b0e;
+  --tarjeta:#14141b;
+  --texto:#ffffff;
+  --texto-suave:#b7b7c3;
+  --acento:#FFDD00;
+  --acento-hover:#E6C900;
+  --borde:rgba(255,221,0,0.18);
+  --peligro:#ff5c5c;
+}
+
+/* layout */
+.cuerpo-ejercicio{
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,221,0,0.10), transparent 45%),
+    radial-gradient(circle at 80% 30%, rgba(255,221,0,0.08), transparent 50%),
+    radial-gradient(circle at 50% 90%, rgba(255,255,255,0.04), transparent 55%),
+    var(--fondo);
+  color:var(--texto);
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+/* tarjeta */
+.contenedor-ejercicio{
+  width:min(780px,94vw);
+  margin:auto;
+  background:var(--tarjeta);
+  border:1px solid var(--borde);
+  border-radius:16px;
+  padding:clamp(24px,4vw,44px);
+  position:relative;
+
+  box-shadow:
+    0 18px 40px rgba(0,0,0,0.55),
+    0 0 0 1px rgba(255,221,0,0.18),
+    0 10px 30px rgba(255,221,0,0.14);
+
+  animation: ejercicioGlow  4.1s ease-in-out infinite;
+}
+
+/* cabecera */
+.cabecera-ejercicio{margin-bottom:18px;}
+.titulo-ejercicio{
+  font-size:clamp(30px,4.5vw,42px);
+  margin-bottom:10px;
+}
+.subtitulo-ejercicio{
+  color:var(--texto-suave);
+  line-height:1.6;
+}
+
+/* alertas */
+.alerta{
+  padding:12px 14px;
+  border-radius:12px;
+  margin:14px 0 16px;
+}
+.alerta-error{
+  border:1px solid rgba(255,92,92,0.35);
+  background:rgba(255,92,92,0.08);
+  color:#ffd1d1;
+}
+
+/* formulario */
+.formulario-ejercicio{
+  display:grid;
+  gap:14px;
+  margin-top:10px;
+}
+.campo{
+  display:grid;
+  gap:8px;
+}
+label{
+  font-weight:950;
+  color:#d7d7e6;
+  font-size:14px;
+}
+
+/* inputs */
+input{
+  width:100%;
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.10);
+  color:var(--texto);
+  border-radius:12px;
+  padding:12px 14px;
+  outline:none;
+  transition:border .2s ease, transform .15s ease, box-shadow .2s ease;
+}
+
+input:focus{
+  border-color:rgba(255,221,0,0.75);
+  box-shadow:0 0 0 4px rgba(255,221,0,0.08);
+  transform:translateY(-1px);
+}
+
+/**Select**/
+
+select{
+  width:100%;
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.10);
+  color:var(--texto);
+  border-radius:12px;
+  padding:12px 14px;
+  outline:none;
+  transition:border .2s ease, transform .15s ease, box-shadow .2s ease;
+}
+
+/* foco igual que input */
+select:focus{
+  border-color:rgba(255,221,0,0.75);
+  box-shadow:0 0 0 4px rgba(255,221,0,0.08);
+  transform:translateY(-1px);
+}
+
+/* flecha */
+.campo-select{
+  appearance:none;
+  -webkit-appearance:none;
+  -moz-appearance:none;
+
+  background-image:
+    linear-gradient(45deg, transparent 50%, rgba(255,221,0,0.9) 50%),
+    linear-gradient(135deg, rgba(255,221,0,0.9) 50%, transparent 50%);
+  background-position:
+    calc(100% - 18px) 50%,
+    calc(100% - 12px) 50%;
+  background-size:6px 6px, 6px 6px;
+  background-repeat:no-repeat;
+
+  /* deja espacio para la flecha */
+  padding-right:42px;
+}
+
+/* opciones del desplegable */
+.campo-select option,
+.campo-select optgroup{
+  background:#14141b;
+  color:#ffffff;
+}
+
+/* placeholder del select (opción vacía) un poco más suave */
+.campo-select option[disabled]{
+  color:rgba(183,183,195,0.9);
+}
+
+/* errores */
+.error-campo{
+  color:var(--peligro);
+  font-size:12.5px;
+  line-height:1.3;
+}
+
+/* acciones */
+.acciones{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  margin-top:6px;
+}
+
+.boton-principal{
+  border:none;
+  background:var(--acento);
+  color:#0b0b0e;
+  font-weight:950;
+  padding:12px 18px;
+  border-radius:12px;
+  cursor:pointer;
+  transition:transform .15s ease, background .2s ease;
+}
+.boton-principal:hover{
+  background:var(--acento-hover);
+  transform:translateY(-1px);
+}
+
+.boton-secundario{
+  text-align:center;
+  text-decoration:none;
+  border:1px solid rgba(255,221,0,0.65);
+  color:#ffe75a;
+  font-weight:950;
+  padding:12px 18px;
+  border-radius:12px;
+  transition:transform .15s ease, background .2s ease;
+}
+.boton-secundario:hover{
+  background:rgba(255,221,0,0.10);
+  transform:translateY(-1px);
+}
+
+/* pista */
+.pista-ejercicio{
+  margin-top:6px;
+  font-size:14px;
+  color:var(--texto-suave);
+  min-height:18px;
+}
+
+/* ayuda */
+.ayuda-flotante{
+  position:fixed;
+  top:18px;
+  right:18px;
+  z-index:5;
+  display:inline-flex;
+  align-items:center;
+  padding:10px 12px;
+  border-radius:999px;
+  background:var(--tarjeta);
+  border:1px solid rgba(255,221,0,0.30);
+  color:#ffe75a;
+  text-decoration:none;
+  font-weight:900;
+  font-size:13px;
+  backdrop-filter:blur(10px);
+  transition:transform .15s ease, background .2s ease, border-color .2s ease;
+}
+.ayuda-flotante:hover{
+  transform:translateY(-1px);
+  background:rgba(20,20,27,0.85);
+  border-color:rgba(255,221,0,0.55);
+}
+
+/* footer */
+.pie-ejercicio{
+  padding:18px 24px;
+  color:var(--texto-suave);
+}
+.pie-ejercicio-contenido{
+  max-width:780px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+  border-top:1px solid rgba(255,255,255,0.06);
+  padding-top:14px;
+}
+.pie-ejercicio-marca{
+  color:#e9e9f3;
+  font-weight:900;
+}
+.pie-ejercicio-derecha{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.pie-ejercicio-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:34px;
+  height:34px;
+  border-radius:10px;
+  border:1px solid rgba(255,221,0,0.22);
+  background:rgba(255,255,255,0.03);
+  transition:transform .15s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease;
+}
+.pie-ejercicio-link:hover{
+  transform:translateY(-1px);
+  border-color:rgba(255,221,0,0.55);
+  background:rgba(255,221,0,0.06);
+}
+.pie-ejercicio-link img{
+  width:18px;
+  height:18px;
+}
+
+/* parpadeo redes */
+.pie-ejercicio-link.parpadeo-red{
+  border-color:rgba(255,221,0,0.75);
+  background:rgba(255,221,0,0.10);
+  box-shadow:0 0 0 4px rgba(255,221,0,0.06), 0 10px 22px rgba(255,221,0,0.12);
+  transform:translateY(-1px);
+}
+
+/*** Animacion neon ***/
+@keyframes ejercicioGlow {
+  0% {
+    box-shadow:
+      0 18px 40px rgba(0,0,0,0.55),
+      0 0 0 1px rgba(255,221,0,0.16),
+      0 12px 26px rgba(255,221,0,0.10),
+      0 28px 70px rgba(255,221,0,0.12);
+  }
+
+  50% {
+    box-shadow:
+      0 22px 55px rgba(0,0,0,0.65),
+      0 0 0 1px rgba(255,221,0,0.32),
+      0 18px 40px rgba(255,221,0,0.22),
+      0 40px 120px rgba(255,221,0,0.30);
+  }
+
+  100% {
+    box-shadow:
+      0 18px 40px rgba(0,0,0,0.55),
+      0 0 0 1px rgba(255,221,0,0.16),
+      0 12px 26px rgba(255,221,0,0.10),
+      0 28px 70px rgba(255,221,0,0.12);
+  }
+}
+
+/* responsive */
+@media(min-width:700px){
+  .acciones{flex-direction:row;align-items:center;}
+}
